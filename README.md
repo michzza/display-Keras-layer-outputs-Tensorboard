@@ -7,5 +7,5 @@ Outputs of the model's intermediate layers per epoch are saved to Tensorboard. O
 $ tensorboard --logdir path/to/dir/tensorboard
 ```
 
-This is an example of the ouputs for the first layer:
-![image](https://user-images.githubusercontent.com/78221892/147237171-1515ce6f-ea26-480a-a665-0e81c14ca3b4.png)
+This is an example of the ouputs for the first 2 layers:
+![image](https://user-images.githubusercontent.com/78221892/147249961-0e2fc821-c8c1-4109-bcb3-f1dab0edbe08.png)
