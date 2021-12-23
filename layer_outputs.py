@@ -41,10 +41,9 @@ class LayerOutputLogger(keras.callbacks.Callback):
                     unit="batches",
                 ):
                     input_data = np.reshape(val_data[0], [-1, 784])
-                    # input_data=val_data[0]
                     layer_output = get_layer_output(input_data)[0]
                     tf.summary.histogram(
-                        f"{layer_index}-{str(layer).split('layers.')[1]}",
+                        f"{layer_index}-{str(layer.name)}",
                         layer_output,
                         step=epoch,
                     )
@@ -65,8 +64,7 @@ y_test = y_test[:1000]
 x_train_dataset = tf.data.Dataset.from_tensor_slices((x_train, y_train))  #transform training data to data.Dataset object. This step can be skipped if the callaback function is updated so a tensor can be passed directly.
 
 
-current_time = datetime.now().strftime("%Y-%M-%d--%H-%M-%S")
-print(current_time)
+current_time = datetime.now().strftime("%Y-%m-%d--%H-%M-%S")
 tensorboard_log_dir = f"tensorboard_{current_time}"
 tensorboard_callback = tf.keras.callbacks.TensorBoard(
     histogram_freq=1,
